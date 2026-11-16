@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kartik Jagtap — Speech & Conversational AI Researcher</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --text: #1e293b;
+      --muted: #475569;
+      --subtle: #64748b;
+      --accent: #0f4c81;
+      --accent-hover: #0a355c;
+      --border: #e2e8f0;
+      --badge-pub-bg: #e0f2fe;
+      --badge-pub-text: #0369a1;
+      --badge-acc-bg: #fef3c7;
+      --badge-acc-text: #b45309;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* Hero / Bio Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 190px;
+      gap: 2.5rem;
+      align-items: start;
+      padding-bottom: 2.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero p {
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.42rem 0.9rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .social-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      background: #f1f5f9;
+    }
+
+    .profile-photo {
+      width: 185px;
+      height: 185px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--subtle);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* Section Headings */
+    section {
+      padding-top: 2.75rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    /* Research Interests Grid */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .interest-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+    }
+
+    .interest-card h3 {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .interest-card p {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .research-intro {
+      color: var(--muted);
+      margin: -0.35rem 0 1.25rem;
+      max-width: 780px;
+    }
+
+    .research-agenda {
+      margin-top: 1.75rem;
+      padding: 1.4rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .research-agenda h3 {
+      font-size: 1.08rem;
+      color: var(--accent);
+      margin-bottom: 0.55rem;
+    }
+
+    .research-agenda > p {
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+
+    .research-agenda ul {
+      padding-left: 1.25rem;
+      color: var(--muted);
+    }
+
+    .research-agenda li + li {
+      margin-top: 0.55rem;
+    }
+
+    /* Publications */
+    .pub-group-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--subtle);
+      font-weight: 700;
+      margin: 1.75rem 0 1rem;
+    }
+
+    .pub-item {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pub-item:last-child {
+      border-bottom: none;
+    }
+
+    .pub-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.3rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .badge-published {
+      background: var(--badge-pub-bg);
+      color: var(--badge-pub-text);
+    }
+
+    .badge-accepted {
+      background: var(--badge-acc-bg);
+      color: var(--badge-acc-text);
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .pub-authors {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .pub-authors strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .pub-venue {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--subtle);
+    }
+
+    .pub-links {
+      margin-top: 0.45rem;
+      display: flex;
+      gap: 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Experience Timeline */
+    .exp-item {
+      margin-bottom: 1.65rem;
+      padding-left: 1.1rem;
+      border-left: 2px solid var(--border);
+    }
+
+    .exp-item:hover {
+      border-left-color: var(--accent);
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .exp-role {
+      font-weight: 600;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .exp-date {
+      font-size: 0.88rem;
+      color: var(--subtle);
+      font-weight: 500;
+    }
+
+    .exp-org {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.45rem;
+    }
+
+    .exp-desc {
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--subtle);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .profile-photo {
+        order: -1;
+        width: 140px;
+        height: 140px;
+      }
+      .interests-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="#" class="nav-brand">Kartik Jagtap</a>
+      <nav class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- BIO / HERO -->
+    <section class="hero" style="padding-top: 0;">
+      <div>
+        <h1>Kartik Jagtap</h1>
+        <div class="subtitle">Speech &amp; Conversational AI Researcher &bull; B.Tech in Data Science &amp; AI, IIIT Dharwad</div>
+        <p>
+          I am an AI Researcher specializing in <strong>automatic speech recognition (ASR)</strong>, <strong>self-supervised speech representations (SSL)</strong>, and <strong>conversational AI</strong>. Currently, I am a Research Intern at the <strong>Language Technologies Research Center (LTRC), IIIT Hyderabad</strong>, investigating rich acoustic representations and prosodic cues in speech foundation models.
+        </p>
+        <p>
+          Previously, I worked as an AI Engineer at <strong>BharatGen (TIH IIT Bombay)</strong> building low-resource multilingual speech LLMs, and as a Speech Research Intern at the <strong>CS-SMT Lab, IIT Madras</strong> optimizing streaming Zipformer ASR architectures. I am seeking Master's / research opportunities for Fall 2027 in speech processing, paralinguistics, and multimodal conversational systems.
+        </p>
+        <div class="social-links">
+          <a href="mailto:kartikjagtap206@gmail.com" class="social-btn">Email</a>
+          <a href="https://github.com/ksj6" target="_blank" rel="noopener" class="social-btn">GitHub</a>
+          <a href="https://www.linkedin.com/in/kartik-jagtap-409297229" target="_blank" rel="noopener" class="social-btn">LinkedIn</a>
+          <!-- Add your Google Scholar or CV PDF link below -->
+          <a href="#" class="social-btn">Google Scholar</a>
+          <a href="Kartik_Jagtap_latest_research_resume.pdf" target="_blank" class="social-btn">CV (PDF)</a>
+        </div>
+      </div>
+
+      <!-- Replace the div below with <img src="photo.jpg" alt="Kartik Jagtap" class="profile-photo"> once you have your headshot -->
+      <div class="profile-photo">
+        Add headshot<br>(photo.jpg)
+      </div>
+    </section>
+
+    <!-- RESEARCH INTERESTS -->
+    <section id="research">
+      <h2>Research Interests</h2>
+      <p class="research-intro">
+        My interests center on building speech systems that understand more than words: they should work across languages and resource levels, respond at conversational speed, and make use of vocal delivery and visual context when available. I am especially interested in what speech models represent internally, how those representations change with speaking style, and how to evaluate them beyond transcription accuracy.
+      </p>
+      <div class="interests-grid">
+        <div class="interest-card">
+          <h3>Self-Supervised Representations &amp; ASR</h3>
+          <p>
+            Probing models such as wav2vec 2.0, HuBERT, and WavLM to trace how acoustic detail, phonetic content, linguistic structure, speaker traits, and paralinguistic cues emerge across layers. I am interested in comparing these self-supervised representations with large-scale ASR encoders such as Whisper, and testing what transfers to downstream tasks, languages, and recording conditions.
+          </p>
+        </div>
+
+        <div class="interest-card">
+          <h3>Low-Resource &amp; Multilingual ASR</h3>
+          <p>
+            Improving recognition when transcribed data, compute, or language-specific tooling is limited. Directions include multilingual transfer, careful pseudo-labeling and data selection, parameter-efficient adaptation, code-switching, accent and domain robustness, and streaming inference. Evaluation should reflect the language's script and normalization conventions and report more than a single aggregate word error rate.
+          </p>
+        </div>
+
+        <div class="interest-card">
+          <h3>Prosody &amp; Paralinguistic Information</h3>
+          <p>
+            Studying pitch (F0), intensity, duration, rhythm, stress, intonation, voice quality, and timing alongside words. These signals can convey emphasis, affect, stance, turn-yielding, hesitation, and other interactional cues. A key question is how such information varies across speakers, languages, and speaking styles—and which parts are retained, entangled, or discarded by learned speech representations.
+          </p>
+        </div>
+
+        <div class="interest-card">
+          <h3>Speech–Face &amp; Audio-Visual Learning</h3>
+          <p>
+            Connecting synchronized voice and facial dynamics through audio-visual speech recognition, lip-reading, and cross-modal representation learning. I am interested in how lip motion supports recognition in noise, and how vocal prosody relates to facial expression, gaze, head movement, and visible turn-taking signals—while distinguishing shared information from modality-specific cues and handling missing or misaligned modalities.
+          </p>
+        </div>
+
+        <div class="interest-card">
+          <h3>Conversational &amp; Real-Time Speech AI</h3>
+          <p>
+            Exploring speech-first assistants that listen and respond with low latency, rather than treating interaction as a sequence of isolated transcription and text-generation steps. Important problems include turn-taking, interruptions, backchannels, repair, endpointing, contextual memory, and producing speech whose timing and prosody fit the dialogue.
+          </p>
+        </div>
+
+        <div class="interest-card">
+          <h3>Robust Evaluation &amp; Adaptation</h3>
+          <p>
+            Measuring systems under realistic shifts in noise, microphone, accent, language, speaking rate, emotion, and visual availability. Alongside recognition quality, evaluation should consider latency, calibration, conversational timing, subgroup performance, and whether a model preserves useful paralinguistic information without confusing it with linguistic content.
+          </p>
+        </div>
+      </div>
+
+      <div class="research-agenda">
+        <h3>Emerging Research Directions</h3>
+        <p>
+          Conversational speech research is moving toward systems that jointly model perception and response, operate continuously, and combine speech with text and visual context. This creates opportunities—and open questions—for low-resource and multimodal research:
+        </p>
+        <ul>
+          <li><strong>From cascades to speech-native interaction:</strong> compare modular ASR–language-model–TTS pipelines with speech-to-speech and unified audio-language approaches, especially for latency, error propagation, controllability, and preservation of vocal cues.</li>
+          <li><strong>Streaming and duplex conversation:</strong> study how models decide when to listen, speak, wait, or yield the floor, and how they handle overlap, interruptions, and changing user intent in real time.</li>
+          <li><strong>More than transcript semantics:</strong> test whether self-supervised and generative speech representations encode prosodic variation, emotion, speaker state, and interactional timing—and whether those signals remain usable after adaptation or compression.</li>
+          <li><strong>Grounded audio-visual models:</strong> align speech with lip movement, facial expression, gaze, and conversational events, while testing synchronization errors, modality dropouts, privacy constraints, and cross-cultural variation.</li>
+          <li><strong>Data-efficient multilingual systems:</strong> combine cross-lingual transfer and targeted adaptation with transparent data curation and language-aware evaluation, so gains for high-resource languages do not conceal regressions elsewhere.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <!-- ACCEPTED / FORTHCOMING -->
+      <div class="pub-group-title">Accepted &amp; Forthcoming (To Appear)</div>
+
+      <div class="pub-item">
+        <div class="pub-header">
+          <span class="badge badge-accepted">Accepted</span>
+          <!-- REPLACE TITLE BELOW WITH YOUR FIRST ACCEPTED PAPER -->
+          <span class="pub-title">[Title of Your Accepted Cloud / Sentiment Analysis Paper]</span>
+        </div>
+        <div class="pub-authors"><strong>Kartik Jagtap</strong>, [Co-Authors]</div>
+        <div class="pub-venue">[Conference / Journal Name, Year] &mdash; Camera-ready submitted</div>
+        <div class="pub-links">
+          <a href="#">[Preprint / PDF]</a>
+          <a href="#">[Code]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-header">
+          <span class="badge badge-accepted">Accepted</span>
+          <!-- REPLACE TITLE BELOW WITH YOUR SECOND ACCEPTED PAPER -->
+          <span class="pub-title">[Title of Your Second Accepted Paper]</span>
+        </div>
+        <div class="pub-authors"><strong>Kartik Jagtap</strong>, [Co-Authors]</div>
+        <div class="pub-venue">[Conference / Journal Name, Year] &mdash; In press</div>
+        <div class="pub-links">
+          <a href="#">[Preprint / PDF]</a>
+          <a href="#">[Code]</a>
+        </div>
+      </div>
+
+      <!-- PUBLISHED -->
+      <div class="pub-group-title">Published</div>
+
+      <div class="pub-item">
+        <div class="pub-header">
+          <span class="badge badge-published">Published</span>
+          <span class="pub-title">Infant Cry Verification with Multi-View Self-Attention Vision Transformers</span>
+        </div>
+        <div class="pub-authors"><strong>Kartik Jagtap</strong>, Namita Gokavi, and Sunil Saumya</div>
+        <div class="pub-venue">IEEE O-COCOSDA 2024, Taiwan (IEEE Xplore)</div>
+        <div class="pub-links">
+          <a href="#">[IEEE Xplore / DOI]</a>
+          <a href="https://github.com/ksj6" target="_blank" rel="noopener">[Code]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-header">
+          <span class="badge badge-published">Published</span>
+          <span class="pub-title">A Comprehensive Metaheuristic Algorithm: Leveraging Coyote and Chimp Optimization for Optimal Performance</span>
+        </div>
+        <div class="pub-authors"><strong>Kartik Jagtap</strong>, Dhairyashil Shendage, and Utkarsh Khaire</div>
+        <div class="pub-venue">ICCI 2024, NIT Surat &bull; Springer Book Series: Algorithms for Intelligent Systems</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1007/978-981-96-4539-8_4" target="_blank" rel="noopener">[Springer DOI]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH & WORK EXPERIENCE -->
+    <section id="experience">
+      <h2>Research &amp; Engineering Experience</h2>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-role">Research Intern</span>
+          <span class="exp-date">June 2026 &ndash; Present</span>
+        </div>
+        <div class="exp-org">Language Technologies Research Center (LTRC), IIIT Hyderabad</div>
+        <div class="exp-desc">
+          Investigating rich self-supervised speech representations for prosodic cues (pitch, amplitude, stress, rhythm, and intonation) and downstream ASR performance under controlled acoustic conditions.
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-role">Artificial Intelligence Engineer</span>
+          <span class="exp-date">Dec 2025 &ndash; May 2026</span>
+        </div>
+        <div class="exp-org">BharatGen, TIH IIT Bombay</div>
+        <div class="exp-desc">
+          Built ASR and Speech LLM pipelines for low-resource, multilingual Indian languages across diverse acoustic conditions. Engineered data preprocessing, benchmarking, and multi-node Slurm GPU inference workflows.
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-role">Artificial Intelligence Engineer</span>
+          <span class="exp-date">June 2025 &ndash; Nov 2025</span>
+        </div>
+        <div class="exp-org">NTT Data</div>
+        <div class="exp-desc">
+          Orchestrated 4 enterprise AI connectors for Glean—improving vectorization and semantic retrieval speeds by 22%—and built CrewAI agentic automation workflows.
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-role">Speech Research Intern</span>
+          <span class="exp-date">Jan 2025 &ndash; May 2025</span>
+        </div>
+        <div class="exp-org">CS-SMT Speech Lab, IIT Madras</div>
+        <div class="exp-desc">
+          Conducted research on streaming ASR and speaker diarization; optimized a Zipformer-based ASR system to cut Word Error Rate (WER) from 22% to 11% while lowering real-time inference latency.
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-role">Generative AI &amp; Cloud Intern</span>
+          <span class="exp-date">May 2024 &ndash; Aug 2024</span>
+        </div>
+        <div class="exp-org">TechTalks, Pune</div>
+        <div class="exp-desc">
+          Developed multimodal RAG chatbot pipelines over documents, images, and videos, reducing response latency by 40%.
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="exp-item" style="margin-bottom: 0;">
+        <div class="exp-top">
+          <span class="exp-role">B.Tech in Data Science and Artificial Intelligence</span>
+          <span class="exp-date">Dec 2021 &ndash; June 2025</span>
+        </div>
+        <div class="exp-org">Indian Institute of Information Technology (IIIT) Dharwad &bull; CGPA: 8.56 / 10</div>
+        <div class="exp-desc">
+          Relevant Coursework: Deep Learning for Speech and Computer Vision, Generative AI, Machine Learning, Cloud Computing, DevOps.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Kartik Jagtap</span>
+    <span>Last updated: November 2026</span>
+  </footer>
+
+</body>
+</html>
